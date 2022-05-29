@@ -1,0 +1,6 @@
+.venv
+.test_venv
+__pycache__
+*.html
+*.xml
+dist

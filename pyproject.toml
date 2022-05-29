@@ -1,0 +1,38 @@
+[tool.poetry]
+authors = ["Piotr Chromiński <piot.chrom@gmail.com>"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Framework :: Robot Framework",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Testing :: Acceptance",
+]
+description = "Robot Framework listener that prints Python traceback for failing keywords."
+license = "Apache-2.0"
+name = "robotframework-pythonstacktrace"
+packages = [
+  {include = "PythonStackTracer"},
+]
+readme = "README.md"
+repository = "https://github.com/aajn/robotframework-pythonstacktrace"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+robotframework = ">=5"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+invoke = "^1.7.1"
+pylint = "^2.13.9"
+robotframework = ">=5"
+robotframework-robocop = "^2.0.2"
+
+[tool.pylint.messages_control]
+disable = ["missing-module-docstring", "missing-function-docstring", "invalid-name"]
+max-line-length = 120
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]

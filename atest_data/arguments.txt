@@ -1,0 +1,7 @@
+--listener PythonStackTracer
+--output NONE
+--log NONE
+--report NONE
+--pythonpath .
+--pythonpath ./atest_data
+atest_data

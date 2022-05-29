@@ -1,0 +1,37 @@
+name: Robot Framework compatibility
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        rf-version: [">=5"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.7"
+    - name: Install Poetry
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install poetry
+    - name: Install dependencies
+      run: |
+        poetry install
+    - name: Prepare venv for test
+      run: |
+        python -m venv .test_venv
+        ./.test_venv/bin/python -m pip install robotframework${{ matrix.rf-version }}
+    - name: Test
+      run: |
+        poetry run robot --variable ROBOT_EXE:./.test_venv/bin/robot ./atest
