@@ -34,6 +34,9 @@ robotframework-robocop = "^2.0.2"
 disable = ["missing-module-docstring", "missing-function-docstring", "invalid-name"]
 max-line-length = 120
 
+[tool.robocop]
+exclude = ["0201", "0202", "0203"]
+
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core>=1.0.0"]
