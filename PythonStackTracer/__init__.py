@@ -27,14 +27,7 @@ class PythonStackTracer:
     ROBOT_LISTENER_API_VERSION = "2"
     _kwstack: List[Any] = field(default_factory=list)
 
-    def start_test(self, name, attributes):
-        self._kwstack = []
-
-    def end_keyword(self, name, attributes):
-        if attributes["status"] == "FAIL":
-            self._kwstack.append((name, attributes, sys.exc_info()[1]))
-
-    def end_test(self, data, result):
+    def _print_trace(self):
         if not self._kwstack:
             return
 
@@ -55,3 +48,15 @@ class PythonStackTracer:
         print("", end="\r")
         print(f"Python {error.traceback}")
         print("_" * 78)
+
+    def end_keyword(self, name, attributes):
+        if attributes["status"] == "FAIL":
+            self._kwstack.append((name, attributes, sys.exc_info()[1]))
+
+    def end_test(self, data, result):
+        self._print_trace()
+        self._kwstack = []
+
+    def end_suite(self, data, result):
+        self._print_trace()
+        self._kwstack = []

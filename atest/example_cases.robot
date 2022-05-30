@@ -28,7 +28,7 @@ Run Test With Tracer
     [Arguments]    ${test name}
     ${out}    Run Process    ${ROBOT_EXE}
     ...    --console    quiet
-    ...    --test    atest_data.example.${test name}
+    ...    --test    atest_data.${test name}
     ...    --argumentfile    ${ATEST_DATA}/arguments.txt
 
     Set Test Variable    ${TEST_OUT}    ${out}
@@ -60,7 +60,7 @@ Last Test Should Not Contain A Stack Trace
 
 *** Test Cases ***
 Passing test results in no stack trace
-    Run Test With Tracer    Passing test
+    Run Test With Tracer    Example.Passing test
     Last Test Should Have Passed
     Last Test Should Not Contain A Stack Trace
 
@@ -70,16 +70,26 @@ Passing test results in no stack trace
     ...    Listener must not output anything to stderr if test has passed
 
 Test failing because of a BuiltIn library keyword results in no stack trace
-    Run Test With Tracer    Failing BuiltIn
+    Run Test With Tracer    Example.Failing BuiltIn
     Last Test Should Have Failed
     Last Test Should Not Contain A Stack Trace
 
 Test failing because of a failing library keyword results in a stack trace
-    Run Test With Tracer    Failing library keyword
+    Run Test With Tracer    Example.Failing library keyword
     Last Test Should Have Failed
     Last Test Should Contain A Stack Trace
 
 Test failing because of "Wait Until Keyword Succeeds" results in a stack trace
-    Run Test With Tracer    Failing library keyword with WUKS
+    Run Test With Tracer    Example.Failing library keyword with WUKS
+    Last Test Should Have Failed
+    Last Test Should Contain A Stack Trace
+
+Keyword failing in test setup results in a stack trace
+    Run Test With Tracer    Example.Failing in test setup
+    Last Test Should Have Failed
+    Last Test Should Contain A Stack Trace
+
+Keyword failing in suite setup results in a stack trace
+    Run Test With Tracer    failing_suite.failing in suite setup
     Last Test Should Have Failed
     Last Test Should Contain A Stack Trace

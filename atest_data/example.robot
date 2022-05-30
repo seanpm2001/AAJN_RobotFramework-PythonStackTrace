@@ -15,3 +15,7 @@ Failing library keyword
 Failing library keyword with WUKS
     Wait Until Keyword Succeeds
     ...    5x    0ms    Raises An Exception
+
+Failing in test setup
+    [Setup]    Raises An Exception
+    No Operation
