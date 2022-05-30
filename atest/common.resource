@@ -1,10 +1,10 @@
 *** Settings ***
-Library    Process
+Library     Process
 
 
 *** Variables ***
-${ROBOT_EXE}    robot
-${ATEST_DATA}    ./atest_data
+${ROBOT_EXE}        robot
+${ATEST_DATA}       ./atest_data
 
 
 *** Keywords ***
@@ -51,7 +51,8 @@ Last Test Should Have Failed
 Last Test Should Contain A Stack Trace
     Check That Test Has Been Executed
     IF    "Python Traceback" not in $TEST_OUT.stdout
-    ...    Fail    Last test does not contain a stack trace
+        Fail    Last test does not contain a stack trace
+    END
 
 Last Test Should Not Contain A Stack Trace
     Check That Test Has Been Executed

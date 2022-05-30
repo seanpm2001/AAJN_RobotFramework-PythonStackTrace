@@ -22,6 +22,7 @@ def lint(c):
 def format_code(c):
     c.run(f"black --quiet {ROOT}", echo=True)
     c.run(f"isort {ROOT}", echo=True)
+    c.run(f"robotidy {ROOT}")
 
 
 @task

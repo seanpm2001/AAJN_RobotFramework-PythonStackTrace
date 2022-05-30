@@ -1,6 +1,7 @@
 *** Settings ***
-Resource    ./atest/common.resource
-Test Teardown    Log Test Stdout And Stderr On Failure
+Resource            ./atest/common.resource
+
+Test Teardown       Log Test Stdout And Stderr On Failure
 
 
 *** Test Cases ***

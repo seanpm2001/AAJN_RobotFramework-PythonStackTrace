@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExceptionalLibrary
+Library     ExceptionalLibrary
 
 
 *** Test Cases ***
@@ -21,5 +21,5 @@ Failing in test setup
     No Operation
 
 Failing in test teardown
-    [Teardown]    Raises An Exception
     No Operation
+    [Teardown]    Raises An Exception

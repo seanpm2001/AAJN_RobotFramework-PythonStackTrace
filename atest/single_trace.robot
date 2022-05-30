@@ -1,9 +1,8 @@
-
 *** Settings ***
-Resource    ./atest/common.resource
-Test Teardown    Log Test Stdout And Stderr On Failure
-Test Template    Run Test And Check That It Contains A Trace
+Resource            ./atest/common.resource
 
+Test Teardown       Log Test Stdout And Stderr On Failure
+Test Template       Run Test And Check That It Contains A Trace
 
 
 *** Test Cases ***    TEST
