@@ -31,6 +31,7 @@ jobs:
     - name: Check Style
       run: |
         poetry run black --check .
+        poetry run robotidy --check .
     - name: Test
       run: |
         poetry run inv test
