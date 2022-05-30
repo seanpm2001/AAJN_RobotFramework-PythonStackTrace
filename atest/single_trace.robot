@@ -9,8 +9,10 @@ Test Template    Run Test And Check That It Contains A Trace
 *** Test Cases ***    TEST
 Test failing because of a failing library keyword results in a stack trace    Example.Failing library keyword
 Test failing because of "Wait Until Keyword Succeeds" results in a stack trace    Example.Failing library keyword with WUKS
+Keyword failing in suite setup results in a stack trace    failing_suite_setup.Failing in suite setup
 Keyword failing in test setup results in a stack trace    Example.Failing in test setup
-Keyword failing in suite setup results in a stack trace    failing_suite.failing in suite setup
+Keyword failing in test teardown results in a stack trace    Example.Failing in test teardown
+Keyword failing in suite teardown results in a stack trace    failing_suite_teardown.Failing in suite teardown
 
 
 *** Keywords ***

@@ -19,3 +19,7 @@ Failing library keyword with WUKS
 Failing in test setup
     [Setup]    Raises An Exception
     No Operation
+
+Failing in test teardown
+    [Teardown]    Raises An Exception
+    No Operation
