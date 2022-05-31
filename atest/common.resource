@@ -50,11 +50,11 @@ Last Test Should Have Failed
 
 Last Test Should Contain A Stack Trace
     Check That Test Has Been Executed
-    IF    "Python Traceback" not in $TEST_OUT.stdout
-        Fail    Last test does not contain a stack trace
-    END
+    Should Start With    ${TEST_OUT.stdout}    Python Traceback
+    ...    Last test does not contain a stack trace
+    ...    strip_spaces=LEADING
 
 Last Test Should Not Contain A Stack Trace
     Check That Test Has Been Executed
-    Run Keyword And Expect Error
-    ...    Last test does not contain a stack trace    Last Test Should Contain A Stack Trace
+    Should Be Empty    ${TEST_OUT.stdout}
+    ...    Last test contains a stack trace output
