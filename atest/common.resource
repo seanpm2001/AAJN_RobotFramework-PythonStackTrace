@@ -49,15 +49,23 @@ Last Test Should Have Failed
     Should Not Be Equal As Integers    ${TEST_OUT.rc}    0
     ...    Last test expected to fail but has passed
 
-Last Test Should Contain A Single Stack Trace
+Last Test Should Contain Multiple Stack Traces
+    [Arguments]    ${expected number}
+
     Check That Test Has Been Executed
     Should Start With    ${TEST_OUT.stdout}    Python Traceback
-    ...    Last test output does not contain a stack trace
+    ...    Last test output does not start with a stack trace
     ...    strip_spaces=LEADING
 
     ${matches}    Get Regexp Matches    ${TEST_OUT.stdout}    Python
-    Length Should Be    ${matches}    1
-    ...    Last test output contains more than one stack trace
+    ${number of traces}    Get Length    ${matches}
+
+    IF    ${number of traces} != ${expected number}
+        Fail    Last test output contains ${number of traces} traceback(s), expected ${expected number}
+    END
+
+Last Test Should Contain A Single Stack Trace
+    Last Test Should Contain Multiple Stack Traces    1
 
 Last Test Should Not Contain A Stack Trace
     Check That Test Has Been Executed
