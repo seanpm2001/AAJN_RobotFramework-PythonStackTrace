@@ -14,6 +14,7 @@ Keyword failing in test setup results in a stack trace    Example.Failing in tes
 Keyword failing in test teardown results in a stack trace    Example.Failing in test teardown
 Keyword failing in suite teardown results in a stack trace    failing_suite_teardown.Failing in suite teardown
 Keyword failing in a keyword call results in a stack trace    Example.Failing in a keyword
+Keyword failing in a nested keyword call results in a stack trace    Example.Failing in a nested keyword call
 Keyword failing in "Repeat Keyword" results in a stack trace    Example.Failing in Repeat Keyword
 
 

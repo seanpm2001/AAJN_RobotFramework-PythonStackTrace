@@ -30,7 +30,13 @@ Failing in test teardown
 Failing in a keyword
     Call A Failing Library Keyword
 
+Failing in a nested keyword call
+    Failing Nested Keyword
+
 
 *** Keywords ***
 Call A Failing Library Keyword
     Raises An Exception
+
+Failing Nested Keyword
+    Call A Failing Library Keyword
