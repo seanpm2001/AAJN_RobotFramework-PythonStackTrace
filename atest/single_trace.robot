@@ -23,4 +23,4 @@ Run Test And Check That It Contains A Trace
     [Arguments]    ${test}
     Run Test With Tracer    ${test}
     Last Test Should Have Failed
-    Last Test Should Contain A Stack Trace
+    Last Test Should Contain A Single Stack Trace

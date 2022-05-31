@@ -31,7 +31,7 @@ robotframework = ">=5"
 robotframework-robocop = "^2.0.2"
 
 [tool.pylint.messages_control]
-disable = ["missing-module-docstring", "missing-function-docstring", "invalid-name"]
+disable = ["missing-module-docstring", "missing-function-docstring", "missing-class-docstring", "invalid-name", "too-few-public-methods"]
 max-line-length = 120
 
 [tool.robocop]

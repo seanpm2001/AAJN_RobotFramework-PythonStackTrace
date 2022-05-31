@@ -1,5 +1,6 @@
 *** Settings ***
 Library     Process
+Library     String
 
 
 *** Variables ***
@@ -48,11 +49,15 @@ Last Test Should Have Failed
     Should Not Be Equal As Integers    ${TEST_OUT.rc}    0
     ...    Last test expected to fail but has passed
 
-Last Test Should Contain A Stack Trace
+Last Test Should Contain A Single Stack Trace
     Check That Test Has Been Executed
     Should Start With    ${TEST_OUT.stdout}    Python Traceback
-    ...    Last test does not contain a stack trace
+    ...    Last test output does not contain a stack trace
     ...    strip_spaces=LEADING
+
+    ${matches}    Get Regexp Matches    ${TEST_OUT.stdout}    Python
+    Length Should Be    ${matches}    1
+    ...    Last test output contains more than one stack trace
 
 Last Test Should Not Contain A Stack Trace
     Check That Test Has Been Executed

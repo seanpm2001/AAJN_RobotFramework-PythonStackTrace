@@ -6,6 +6,9 @@ Library     ExceptionalLibrary
 Passing test
     No Operation
 
+Passing Run Keyword And Ignore Error
+    Run Keyword And Ignore Error    Raises An Exception
+
 Failing BuiltIn
     Fail    Oh no!
 
