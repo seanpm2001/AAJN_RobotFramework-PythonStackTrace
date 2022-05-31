@@ -13,6 +13,7 @@ Keyword failing in suite setup results in a stack trace    failing_suite_setup.F
 Keyword failing in test setup results in a stack trace    Example.Failing in test setup
 Keyword failing in test teardown results in a stack trace    Example.Failing in test teardown
 Keyword failing in suite teardown results in a stack trace    failing_suite_teardown.Failing in suite teardown
+Keyword failing in a keyword call    Example.Failing in a keyword
 
 
 *** Keywords ***

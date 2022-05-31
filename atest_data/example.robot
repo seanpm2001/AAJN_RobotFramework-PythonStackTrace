@@ -23,3 +23,11 @@ Failing in test setup
 Failing in test teardown
     No Operation
     [Teardown]    Raises An Exception
+
+Failing in a keyword
+    Call A Failing Library Keyword
+
+
+*** Keywords ***
+Call A Failing Library Keyword
+    Raises An Exception

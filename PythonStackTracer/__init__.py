@@ -31,7 +31,7 @@ class PythonStackTracer:
         if not self._kwstack:
             return
 
-        for name, attributes, exc in reversed(self._kwstack):
+        for name, attributes, exc in self._kwstack:
             if name == "BuiltIn.Wait Until Keyword Succeeds":
                 continue
             break
